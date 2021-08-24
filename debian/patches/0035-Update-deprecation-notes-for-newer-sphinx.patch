@@ -1,0 +1,30 @@
+From: Gabriel de Perthuis <g2p.code@gmail.com>
+Date: Tue, 24 Aug 2021 20:10:01 +0200
+Subject: Update deprecation notes for newer sphinx
+
+---
+ Doc/tools/extensions/pyspecific.py | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/Doc/tools/extensions/pyspecific.py b/Doc/tools/extensions/pyspecific.py
+index 335d108..32de2df 100644
+--- a/Doc/tools/extensions/pyspecific.py
++++ b/Doc/tools/extensions/pyspecific.py
+@@ -275,15 +275,16 @@ class DeprecatedRemoved(Directive):
+         else:
+             para = nodes.paragraph('', '',
+                                    nodes.inline('', '%s.' % text,
+                                                 classes=['versionmodified']),
+                                    translatable=False)
+             node.append(para)
+         env = self.state.document.settings.env
+-        env.note_versionchange('deprecated', version[0], node, self.lineno)
++        domain = env.get_domain('changeset')
++        domain.note_changeset(node)
+         return [node] + messages
+ 
+ 
+ # Support for including Misc/NEWS
+ 
+ issue_re = re.compile('(?:[Ii]ssue #|bpo-)([0-9]+)')
+ whatsnew_re = re.compile(r"(?im)^what's new in (.*?)\??$")
