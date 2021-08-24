@@ -200,7 +200,8 @@ ifeq ($(with_lto),yes)
     RANLIB=$(DEB_HOST_GNU_TYPE)-gcc-ranlib
 endif
 
-make_build_target = $(if $(with_pgo),profile-opt)
+#make_build_target = $(if $(with_pgo),profile-opt)
+make_build_target = build_all
 
 buildd_static	:= $(CURDIR)/build-static
 buildd_shared	:= $(CURDIR)/build-shared
