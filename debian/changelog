@@ -1,3 +1,11 @@
+python3.7 (3.7.11-1+hirsute1) hirsute; urgency=medium
+
+  * Patch to build with newer Sphinx
+  * Don't use system libmpdec, as libmpdec3 is too new
+  * Disable PGO for faster builds
+
+ -- Gabriel de Perthuis <g2p.code+debian@gmail.com>  Wed, 25 Aug 2021 12:06:33 +0200
+
 python3.7 (3.7.11-1+focal1) focal; urgency=medium
 
   * Python 3.7.11 release.
